@@ -1,7 +1,10 @@
 import './App.css';
 import {Contador} from './componentes/contador';
+import ItemDetailCont from './componentes/ItemDetailCont';
 import ItemListContainer from './componentes/ItemListContainer';
 import NavBarComp from './componentes/NavBarComp';
+
+
 
 
 
@@ -21,7 +24,7 @@ const PRODUCTOS = [
 
 function App() {
   return (
-    <div>
+    <div className='App'>
     <header>
     <NavBarComp/>
     </header>
@@ -37,6 +40,11 @@ function App() {
     </div>
 
     <ItemListContainer/>
+
+
+    <ItemDetailCont/>
+
+    
     
 
     </div>
