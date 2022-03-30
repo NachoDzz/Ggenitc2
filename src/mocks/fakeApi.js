@@ -1,10 +1,12 @@
-import gorillaGlue from './../img/gorillaGlue.jpg'
+function onAdd(contar) {
+    alert("el producto fue agregado")
+}
 
 const productos = [
-    {id:'01', name:'planta1', description:'Gorilla-Glue0', img:'./../img/gorillaGlue.jpg' },
-    {id:'02', name:'planta2', description:'Gorilla-Glue1', img:{gorillaGlue} },
-    {id:'03', name:'planta3', description:'Gorilla-Glue2', img:{gorillaGlue} },
-    {id:'04', name:'planta4', description:'Gorilla-Glue3', img:{gorillaGlue} }
+    {id:'01', stock:'5', onAdd: onAdd ,name:'Goriglla Glue Express', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
+    {id:'02', stock:'10', onAdd: onAdd ,name:'Purple Punch Auto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' },
+    {id:'03', stock:'15', onAdd: onAdd ,name:'Gorilla Glue Foto', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
+    {id:'04', stock:'20', onAdd: onAdd ,name:'Purple Punch Foto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' }
 ]
 
 export const getProducts = new Promise ((resolve, reject) => {

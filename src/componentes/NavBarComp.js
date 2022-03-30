@@ -1,31 +1,28 @@
 import React, { Component } from 'react'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 export default class NavBarComp extends Component {
     render() {
         return (
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="dark" variant="dark" expand="lg" classname="d-flex" >
                 <Container fluid>
-                    <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+                    <Navbar.Brand href="#">LOGO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
+                    <Navbar.Collapse id="navbarScroll" className='justify-content-end'>
                         <Nav
-                            className="me-auto my-2 my-lg-0"
-                            style={{ maxHeight: '100px' }}
+                            className="mx-auto my-4 my-lg-0"
+                            style={{ maxHeight: '550px' }}
                             navbarScroll
                         >
-                            <Nav.Link href="#action1">Home</Nav.Link>
-                            <Nav.Link href="#action2">Link</Nav.Link>
-                            <NavDropdown title="Link" id="navbarScrollingDropdown">
-                                <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                                <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action5">
-                                    Something else here
-                                </NavDropdown.Item>
+                            <Nav.Link as={Link} to="/" className='mx-3 text-uppercase fw-bold'>inicio</Nav.Link>
+                            <NavDropdown className='mx-3 fw-bold' title="PRODUCTOS" id="navbarScrollingDropdown">
+                                <NavDropdown.Item as={Link} to="/category/sativa">Sativa</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/category/indica" href="#action4">Indica</NavDropdown.Item>
+
                             </NavDropdown>
-                            <Nav.Link href="#" disabled>
-                                Link
+                            <Nav.Link as={Link} className='mx-3 text-uppercase fw-bold' to="/contacto">
+                                contacto
                             </Nav.Link>
                         </Nav>
                         <Form className="d-flex">

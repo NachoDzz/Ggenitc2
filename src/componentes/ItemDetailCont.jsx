@@ -5,6 +5,8 @@ import ItemDetail from './ItemDetail'
 const ItemDetailCont = () => {
     const [productDetail, setProductDetail] = useState({})
     const [load, setLoad] = useState(false)
+
+
     useEffect(()=>{
         setLoad(true)
         getProducts

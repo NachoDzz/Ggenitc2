@@ -1,53 +1,36 @@
 import './App.css';
-import {Contador} from './componentes/contador';
-import ItemDetailCont from './componentes/ItemDetailCont';
+import './styles/style.scss'
+// import ItemDetailCont from './componentes/ItemDetailCont';
 import ItemListContainer from './componentes/ItemListContainer';
 import NavBarComp from './componentes/NavBarComp';
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import Contacto from './componentes/Contacto';
 
 
 
-
-
-function onAdd(contar) {
-  alert("el producto fue agregado")
-
-}
-
-const PRODUCTOS = [
-  {
-    nombre: "planta", 
-    stock: 15,
-    initial: 1,
-    onAdd: onAdd
-  }
-]  
 
 function App() {
   return (
-    <div className='App'>
+    <BrowserRouter>
+    <div className='bg-color'>
     <header>
     <NavBarComp/>
     </header>
 
-    <div className='app'>
-      {PRODUCTOS.map((producto) => (
-        <Contador 
-        initial={producto.initial}
-        stock={producto.stock}
-        nombre={producto.nombre}
-        onAdd={producto.onAdd}/>
-      ))}
-    </div>
-
-    <ItemListContainer/>
+    {/* <ItemDetailCont/> */}
 
 
-    <ItemDetailCont/>
+    <Routes>
+      <Route path='/' element={<ItemListContainer/>} />
+      <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+      <Route path='/contacto' element={<Contacto />}/>
 
-    
+      <Route path='*' element={<Navigate to={"/"}/>}/>
+    </Routes>
     
 
     </div>
+    </BrowserRouter>
     
   );
 }
