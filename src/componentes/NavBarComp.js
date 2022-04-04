@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default class NavBarComp extends Component {
     render() {
         return (
-            <Navbar bg="dark" variant="dark" expand="lg" classname="d-flex" >
+            <Navbar bg="dark" variant="dark" expand="lg"  >
                 <Container fluid>
                     <Navbar.Brand href="#">LOGO</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
