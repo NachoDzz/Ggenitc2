@@ -1,12 +1,10 @@
-function onAdd(contar) {
-    alert("el producto fue agregado")
-}
+
 
 const productos = [
-    {id: 1, stock:'5', onAdd: onAdd ,name:'Goriglla Glue Express', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
-    {id: 2, stock:'10', onAdd: onAdd ,name:'Purple Punch Auto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' },
-    {id: 3, stock:'15', onAdd: onAdd ,name:'Gorilla Glue Foto', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
-    {id: 4, stock:'20', onAdd: onAdd ,name:'Purple Punch Foto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' }
+    {id: 1, stock:'5', precio:2500, name:'Goriglla Glue Express', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
+    {id: 2, stock:'10',precio:2600, name:'Purple Punch Auto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' },
+    {id: 3, stock:'15',precio:2700, name:'Gorilla Glue Foto', description:'SATIVA', category:'sativa' ,img:'/img/GorillaG.webp' },
+    {id: 4, stock:'20',precio:2800, name:'Purple Punch Foto', description:'INDICA', category:'indica' ,img:'/img/purpleHaze.webp' }
 ]
 
 export const getProducts = new Promise ((resolve, reject) => {
