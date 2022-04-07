@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import CartWidget from './cartWidget/CartWidget'
 
 export default class NavBarComp extends Component {
     render() {
@@ -25,6 +26,7 @@ export default class NavBarComp extends Component {
                                 contacto
                             </Nav.Link>
                         </Nav>
+                            <CartWidget/>
                         <Form className="d-flex">
                             <FormControl
                                 type="search"
@@ -34,6 +36,8 @@ export default class NavBarComp extends Component {
                             />
                             <Button variant="outline-success">Search</Button>
                         </Form>
+
+
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

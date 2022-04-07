@@ -1,9 +1,14 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { CartContext } from '../../contexts/CartContext'
 import ItemCount from '../ItemCount/ItemCount'
 
 
 const ItemDetail = ({ id, stock, precio, name, description, img }) => {
+
+    const { cart, addItem, isInCart} = useContext(CartContext)
+
+    console.log(isInCart(id));
 
     const navigate = useNavigate()
 
@@ -14,7 +19,7 @@ const ItemDetail = ({ id, stock, precio, name, description, img }) => {
     const [cantidad, setCantidad] = useState(1)
 
     const agregarAlCarrito = (cantidad) => {
-        const itemToAdd  = {
+        const itemToAdd = {
             id,
             name,
             precio,
@@ -22,7 +27,8 @@ const ItemDetail = ({ id, stock, precio, name, description, img }) => {
             cantidad
         }
 
-        console.log(itemToAdd);
+        addItem(itemToAdd)
+
     }
 
     return (
@@ -34,13 +40,21 @@ const ItemDetail = ({ id, stock, precio, name, description, img }) => {
                 <h3>${precio}</h3>
                 <small>stock: {stock}</small> <br />
                 <button className='btn btn-primary mt-4' onClick={handleNavigate}> volver </button>
-                <ItemCount 
-                    max={stock}
-                    cantidad={cantidad}
-                    setCantidad={setCantidad}
-                    onAdd={agregarAlCarrito}
+
+                {
+                    !isInCart(id)
+                        ?   <ItemCount
+                        max={stock}
+                        cantidad={cantidad}
+                        setCantidad={setCantidad}
+                        onAdd={agregarAlCarrito}
+                    />
+                    : <Link to={"/cart"} className="btn btn-success mb-4 d-block my-3" > terminar mi compra</Link>
+                }
+
+
+
                 
-                />
             </div>
 
 
