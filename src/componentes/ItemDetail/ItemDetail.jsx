@@ -18,7 +18,7 @@ const ItemDetail = ({ id, stock, precio, name, description, img }) => {
 
     const [cantidad, setCantidad] = useState(1)
 
-    const agregarAlCarrito = (cantidad) => {
+    const agregarAlCarrito = () => {
         const itemToAdd = {
             id,
             name,
@@ -29,7 +29,9 @@ const ItemDetail = ({ id, stock, precio, name, description, img }) => {
 
         addItem(itemToAdd)
 
+        console.log(itemToAdd);
     }
+
 
     return (
         <div className='d-flex justify-content-center align-items-center'>
