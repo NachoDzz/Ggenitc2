@@ -14,7 +14,7 @@ const ItemCount = ({ max = 12,cantidad, setCantidad, onAdd }) => {
     return (
         <div className='my-5 d-flex flex-column aling-item-center justify-content-center'>
             <div>
-                <button className='btn btn-primary' onClick={handleRestar}>-</button>
+                <button className={`btn ${cantidad > 1 ? 'btn-primary' : 'btn-danger'} `} onClick={handleRestar}>-</button>
                 <span className='mx-3' >{cantidad}</span>
                 <button className='btn btn-primary' onClick={handleSumar}>+</button>
             </div>

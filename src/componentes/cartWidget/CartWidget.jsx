@@ -11,7 +11,7 @@ const CartWidget = () => {
     <Link to={"/cart"} className="me-5  ">
 
         <BsFillCartFill/>
-        <span>{cartCantidad()}</span>
+        <span>{cartCantidad() || ""}</span>
 
     </Link>
   )

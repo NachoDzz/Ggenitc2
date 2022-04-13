@@ -1,12 +1,22 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../contexts/CartContext'
-import {BsFillTrashFill} from 'react-icons/bs'
+import { BsFillTrashFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 const Cart = () => {
 
-    const {cart, cartTotal, vaciarCart, removeItem} = useContext(CartContext)
+    const { cart, cartTotal, vaciarCart, removeItem } = useContext(CartContext)
 
     console.log(cart);
+    console.log(cart.length);
+
+    if (cart.length === 0) {
+        return  <div>
+                    <h2>tu carrito esta vacio</h2>
+                    <br />
+                    <Link to={"/"} className="btn btn-primary" >volver</Link>
+                </div>
+    }
 
 
 
@@ -23,7 +33,7 @@ const Cart = () => {
                         <h4>{item.name}</h4>
                         <h5>precio $:{item.precio} x{item.cantidad}</h5>
                         <span>precio total: ${item.precio * item.cantidad}</span>
-                        <button className='btn btn-danger mx-3' onClick={() => removeItem(item.id)}><BsFillTrashFill/></button>
+                        <button className='btn btn-danger mx-3' onClick={() => removeItem(item.id)}><BsFillTrashFill /></button>
                         <hr />
                     </div>
 
@@ -34,6 +44,8 @@ const Cart = () => {
             <h3>TOTAL: ${cartTotal()}</h3>
             <hr />
             <button className='btn btn-danger' onClick={vaciarCart}> vaciar carrito</button>
+
+
 
         </div>
     )
