@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react'
 import ItemList from './ItemList'
 import { getProducts } from '../mocks/fakeApi'
 import { useParams } from 'react-router-dom'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase/config'
 
 
 
@@ -16,17 +18,21 @@ const ItemListContainer = () => {
 
     useEffect (()=>{
         setCargando(true)
-        getProducts
-        .then((res) => {
-            if(categoryId){
-                setListaProductos(res.filter((prod)=> prod.category === categoryId ))
-            }else {
-                setListaProductos(res)
-            }
 
-        })
-        .catch((error) => console.log(error) )
-        .finally(()=> setCargando(false))
+        // 1.- Armar la referencia
+        const productosref = collection(db, "productos")
+        //2.- lamar (async) a esa referencia
+        getDocs(productosref)
+            .then(resp => {
+                const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
+                console.log(items)
+                setListaProductos(items)
+            })
+            .finally(()=> {
+                setCargando(false)
+            })
+            
+
     },[categoryId])
 
 
