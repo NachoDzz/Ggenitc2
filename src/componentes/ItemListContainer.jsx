@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react'
 import ItemList from './ItemList'
-import { getProducts } from '../mocks/fakeApi'
+
 import { useParams } from 'react-router-dom'
-import { collection, getDocs } from 'firebase/firestore'
+import { collection, getDocs, query, where } from 'firebase/firestore'
 import { db } from '../firebase/config'
 
 
@@ -21,8 +21,9 @@ const ItemListContainer = () => {
 
         // 1.- Armar la referencia
         const productosref = collection(db, "productos")
+        const q = categoryId ? query(productosref, where('category', '==', categoryId)) : productosref
         //2.- lamar (async) a esa referencia
-        getDocs(productosref)
+        getDocs(q) 
             .then(resp => {
                 const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()}))
                 console.log(items)
