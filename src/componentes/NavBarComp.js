@@ -8,7 +8,7 @@ export default class NavBarComp extends Component {
         return (
             <Navbar bg="dark" variant="dark" expand="lg"  >
                 <Container fluid>
-                    <Navbar.Brand href="#">LOGO</Navbar.Brand>
+                    <Navbar.Brand href="#">GGenetic</Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className='justify-content-end'>
                         <Nav
